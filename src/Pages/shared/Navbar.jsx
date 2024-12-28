@@ -4,25 +4,25 @@ import bgImg from "../../assets/Icons/bgImg.png";
 const Navbar = () => {
   const links = (
     <div className="flex justify-center items-start gap-2">
-      <NavLink to="/" className="px-5 py-3 bg-base-300">
+      <NavLink to="/" className="px-5 py-3 ">
         Home
       </NavLink>
-      <NavLink to="/" className="px-5 py-3 bg-base-300">
+      <NavLink to="/" className="px-5 py-3 ">
         Contact Us
       </NavLink>
-      <NavLink to="/" className="px-5 py-3 bg-base-300">
+      <NavLink to="/" className="px-5 py-3">
         Dashboard
       </NavLink>
-      <NavLink to="/" className="px-5 py-3 bg-base-300">
+      <NavLink to="/" className="px-5 py-3">
         Our Menu
       </NavLink>
-      <NavLink to="/" className="px-5 py-3 bg-base-300">
+      <NavLink to="/" className="px-5 py-3">
         Our Shop
       </NavLink>
     </div>
   );
   return (
-    <div className="navbar bg-base-100 ">
+    <div className="navbar fixed z-10 bg-opacity-60 bg-black text-white max-w-screen-xl">
       <div className="navbar-start w-[30%] mx-auto">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
