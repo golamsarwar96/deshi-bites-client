@@ -24,6 +24,11 @@ const Menu = () => {
           <MenuCard key={menu._id} menu={menu}></MenuCard>
         ))}
       </div>
+      <div className="flex justify-center items-center mt-10">
+        <button className="px-10 py-4 border-b-2 border-black hover:bg-yellow-400 hover:text-black">
+          View Menu
+        </button>
+      </div>
     </div>
   );
 };

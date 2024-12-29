@@ -1,3 +1,4 @@
+import CallUs from "../../components/CallUs";
 import Highlight from "../../components/Highlight";
 import Menu from "../../components/Menu";
 import Banner from "./Banner";
@@ -10,6 +11,7 @@ const Home = () => {
       <CategorySlider></CategorySlider>
       <Highlight></Highlight>
       <Menu></Menu>
+      <CallUs></CallUs>
     </div>
   );
 };
