@@ -5,6 +5,7 @@ import Recommend from "../../components/Recommend";
 import Banner from "./Banner";
 import CategorySlider from "./CategorySlider";
 import Featured from "./Featured";
+import Testimonials from "./Testimonials";
 
 const Home = () => {
   return (
@@ -16,6 +17,7 @@ const Home = () => {
       <CallUs></CallUs>
       <Recommend></Recommend>
       <Featured></Featured>
+      <Testimonials></Testimonials>
     </div>
   );
 };
