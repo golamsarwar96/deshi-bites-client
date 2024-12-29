@@ -4,6 +4,7 @@ import Menu from "../../components/Menu";
 import Recommend from "../../components/Recommend";
 import Banner from "./Banner";
 import CategorySlider from "./CategorySlider";
+import Featured from "./Featured";
 
 const Home = () => {
   return (
@@ -14,6 +15,7 @@ const Home = () => {
       <Menu></Menu>
       <CallUs></CallUs>
       <Recommend></Recommend>
+      <Featured></Featured>
     </div>
   );
 };
