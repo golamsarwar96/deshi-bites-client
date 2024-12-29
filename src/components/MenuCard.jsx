@@ -4,7 +4,7 @@ const MenuCard = ({ menu }) => {
     <div className="flex justify-center items-center gap-3">
       <div>
         <img
-          className="w-32 h-24 rounded-r-full rounded-b-full"
+          className="w-32 h-24 rounded-r-full rounded-b-full object-cover"
           src={image}
           alt=""
         />
