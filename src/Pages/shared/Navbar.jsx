@@ -13,7 +13,7 @@ const Navbar = () => {
       <NavLink to="/" className="px-5 py-3">
         Dashboard
       </NavLink>
-      <NavLink to="/" className="px-5 py-3">
+      <NavLink to="/menu" className="px-5 py-3">
         Our Menu
       </NavLink>
       <NavLink to="/" className="px-5 py-3">

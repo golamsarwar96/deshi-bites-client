@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet";
 import CallUs from "../../components/CallUs";
 import Highlight from "../../components/Highlight";
 import Menu from "../../components/Menu";
@@ -10,6 +11,9 @@ import Testimonials from "./Testimonials";
 const Home = () => {
   return (
     <div>
+      <Helmet>
+        <title>Deshi Bites | Home</title>
+      </Helmet>
       <Banner></Banner>
       <CategorySlider></CategorySlider>
       <Highlight></Highlight>

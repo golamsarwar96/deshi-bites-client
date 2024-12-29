@@ -38,7 +38,7 @@ const Testimonials = () => {
         modules={[Navigation, Pagination, Mousewheel, Keyboard]}
         className="mySwiper"
       >
-        <div className="flex justify-center items-center">
+        <div className="flex justify-center items-center ">
           {reviews.map((review) => (
             <SwiperSlide className="" key={review._id}>
               <p className="text-center w-[80%] mx-auto">{review.details}</p>
