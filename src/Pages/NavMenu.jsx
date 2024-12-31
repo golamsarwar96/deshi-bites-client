@@ -30,24 +30,24 @@ const NavMenu = () => {
       {/* Dessert Section */}
       <MenuCategory
         items={desserts}
-        title="Desserts"
+        title="dessert"
         coverImg={dessertImg}
       ></MenuCategory>
       {/* Pizza Section */}
       <MenuCategory
         items={pizzas}
-        title="Pizza"
+        title="pizza"
         coverImg={pizzaImg}
       ></MenuCategory>
       {/* salad Section */}
       <MenuCategory
         items={salads}
-        title="Salads"
+        title="salad"
         coverImg={saladImg}
       ></MenuCategory>
       <MenuCategory
         items={soups}
-        title="Soups"
+        title="soup"
         coverImg={soupImg}
       ></MenuCategory>
     </div>
