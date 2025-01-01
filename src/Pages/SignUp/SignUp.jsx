@@ -2,21 +2,33 @@ import { useContext } from "react";
 import { Helmet } from "react-helmet";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../../provider/AuthProvider/AuthProvider";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
 
 const SignUp = () => {
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
-    watch,
+    reset,
     formState: { errors },
   } = useForm();
-  const { createUser } = useContext(AuthContext);
+  const { createUser, updateUserProfile } = useContext(AuthContext);
 
   const onSubmit = (data) => {
     createUser(data.email, data.password)
       .then((result) => {
         const user = result.user;
+        updateUserProfile(data.name, data.photoURL)
+          .then((result) => {
+            reset();
+            toast.success("User Created Successfully");
+            console.log(result);
+            navigate("/");
+          })
+          .catch((err) => {
+            console.log(err.message);
+          });
         console.log(user);
       })
       .catch((err) => {
@@ -55,6 +67,22 @@ const SignUp = () => {
               {errors.name && (
                 <span className="text-red-600 font-bold">
                   This field is required
+                </span>
+              )}
+            </div>
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text">Photo URL</span>
+              </label>
+              <input
+                type="text"
+                {...register("photoURL", { required: true })}
+                placeholder="Photo URL"
+                className="input input-bordered"
+              />
+              {errors.photoURL && (
+                <span className="text-red-600 font-bold">
+                  Photo URL is required
                 </span>
               )}
             </div>
