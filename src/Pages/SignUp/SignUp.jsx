@@ -1,4 +1,7 @@
+import { useContext } from "react";
+import { Helmet } from "react-helmet";
 import { useForm } from "react-hook-form";
+import { AuthContext } from "../../provider/AuthProvider/AuthProvider";
 
 const SignUp = () => {
   const {
@@ -7,12 +10,25 @@ const SignUp = () => {
     watch,
     formState: { errors },
   } = useForm();
+  const { createUser } = useContext(AuthContext);
+
   const onSubmit = (data) => {
+    createUser(data.email, data.password)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
     console.log(data);
   };
-  console.log(watch("example"));
+
   return (
     <div className="hero bg-base-200 min-h-screen p-10">
+      <Helmet>
+        <title>Deshi Bites | Sign Up</title>
+      </Helmet>
       <div className="hero-content flex">
         <div className="text-center lg:text-left">
           <h1 className="text-5xl font-bold">Register now!</h1>
@@ -96,7 +112,7 @@ const SignUp = () => {
               )}
             </div>
             <div className="form-control mt-6">
-              <button className="btn btn-primary">Register</button>
+              <input type="submit" value="Sign UP" />
             </div>
           </form>
         </div>

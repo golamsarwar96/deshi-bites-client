@@ -7,6 +7,7 @@ import {
 } from "react-simple-captcha";
 import { AuthContext } from "../../provider/AuthProvider/AuthProvider";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 const Login = () => {
   const { userLogin } = useContext(AuthContext);
@@ -43,6 +44,9 @@ const Login = () => {
   };
   return (
     <div className="hero bg-base-200 min-h-screen p-10">
+      <Helmet>
+        <title>Deshi Bites | Login</title>
+      </Helmet>
       <div className="hero-content flex">
         <div className="text-center lg:text-left">
           <h1 className="text-5xl font-bold">Login now!</h1>
