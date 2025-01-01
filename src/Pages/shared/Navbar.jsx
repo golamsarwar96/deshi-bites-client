@@ -4,6 +4,7 @@ import bgImg from "../../assets/Icons/bgImg.png";
 import { useContext } from "react";
 import { AuthContext } from "../../provider/AuthProvider/AuthProvider";
 import toast from "react-hot-toast";
+import { PiShoppingCartSimpleBold } from "react-icons/pi";
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
   const handleLogOut = () => {
@@ -73,6 +74,14 @@ const Navbar = () => {
         <div className=" hidden lg:flex mr-5">
           <ul className="menu menu-horizontal px-1">{links}</ul>
         </div>
+        <Link>
+          <button className="mr-4">
+            <div className="badge p-4 font-bold text-base">
+              <PiShoppingCartSimpleBold className="mr-2"></PiShoppingCartSimpleBold>{" "}
+              0{" "}
+            </div>
+          </button>
+        </Link>
         {user && user.email ? (
           <button onClick={handleLogOut} className="btn">
             logout
