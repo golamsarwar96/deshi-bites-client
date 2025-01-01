@@ -6,13 +6,18 @@ import {
   validateCaptcha,
 } from "react-simple-captcha";
 import { AuthContext } from "../../provider/AuthProvider/AuthProvider";
-import { Link } from "react-router-dom";
+import { Link, replace, useLocation, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet";
+import toast from "react-hot-toast";
 
 const Login = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+  const from = location.state?.from?.pathname || "/";
+
   const { userLogin } = useContext(AuthContext);
-  const captchaRef = useRef();
   const [disabled, setDisabled] = useState(true);
+
   useEffect(() => {
     loadCaptchaEnginge(6);
   }, []);
@@ -25,6 +30,8 @@ const Login = () => {
     userLogin(email, password)
       .then((result) => {
         const user = result.user;
+        toast.success("Login Successful");
+        navigate(from, { replace: true });
         console.log(user);
       })
       .catch((err) => {
@@ -32,8 +39,8 @@ const Login = () => {
       });
   };
 
-  const handleValidateCaptcha = () => {
-    const user_captcha_value = captchaRef.current.value;
+  const handleValidateCaptcha = (e) => {
+    const user_captcha_value = e.target.value;
     console.log(user_captcha_value);
     if (validateCaptcha(user_captcha_value)) {
       setDisabled(false);
@@ -87,19 +94,19 @@ const Login = () => {
                 <LoadCanvasTemplate />
               </label>
               <input
-                ref={captchaRef}
+                onBlur={handleValidateCaptcha}
                 type="text"
                 placeholder="Type the captcha"
                 name="captcha"
                 className="input input-bordered"
                 required
               />
-              <button
+              {/* <button
                 onClick={handleValidateCaptcha}
                 className="w-full btn mt-2 hover:bg-blue-800 hover:text-white "
               >
                 Validate
-              </button>
+              </button> */}
             </div>
             <label className="label">
               <a href="#" className="label-text-alt link link-hover">

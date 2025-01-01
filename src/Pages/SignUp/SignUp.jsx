@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { Helmet } from "react-helmet";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../../provider/AuthProvider/AuthProvider";
+import { Link } from "react-router-dom";
 
 const SignUp = () => {
   const {
@@ -115,6 +116,9 @@ const SignUp = () => {
               <input type="submit" value="Sign UP" />
             </div>
           </form>
+          <p className=" text-center p-4">
+            New here? Create a new Account <Link to="/login">Login</Link>
+          </p>
         </div>
       </div>
     </div>

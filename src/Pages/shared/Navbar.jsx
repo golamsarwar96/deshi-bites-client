@@ -1,7 +1,18 @@
 import { Link, NavLink } from "react-router-dom";
 import logo from "../../assets/Icons/icon.png";
 import bgImg from "../../assets/Icons/bgImg.png";
+import { useContext } from "react";
+import { AuthContext } from "../../provider/AuthProvider/AuthProvider";
+import toast from "react-hot-toast";
 const Navbar = () => {
+  const { user, logOut } = useContext(AuthContext);
+  const handleLogOut = () => {
+    logOut()
+      .then(toast.success("Logged Out Successfully"))
+      .catch((err) => {
+        toast.error(err.message);
+      });
+  };
   const links = (
     <div className="flex justify-center items-start gap-2">
       <NavLink to="/" className="px-5 py-3 ">
@@ -62,9 +73,15 @@ const Navbar = () => {
         <div className=" hidden lg:flex mr-5">
           <ul className="menu menu-horizontal px-1">{links}</ul>
         </div>
-        <Link to="/login" className="btn">
-          Login
-        </Link>
+        {user && user.email ? (
+          <button onClick={handleLogOut} className="btn">
+            logout
+          </button>
+        ) : (
+          <Link to="/login" className="btn">
+            Login
+          </Link>
+        )}
       </div>
     </div>
   );
