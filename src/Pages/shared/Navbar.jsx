@@ -5,8 +5,10 @@ import { useContext } from "react";
 import { AuthContext } from "../../provider/AuthProvider/AuthProvider";
 import toast from "react-hot-toast";
 import { PiShoppingCartSimpleBold } from "react-icons/pi";
+import useCart from "../../hooks/useCart";
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
+  const [cart] = useCart();
   const handleLogOut = () => {
     logOut()
       .then(toast.success("Logged Out Successfully"))
@@ -77,8 +79,8 @@ const Navbar = () => {
         <Link>
           <button className="mr-4">
             <div className="badge p-4 font-bold text-base">
-              <PiShoppingCartSimpleBold className="mr-2"></PiShoppingCartSimpleBold>{" "}
-              0{" "}
+              <PiShoppingCartSimpleBold className="mr-2"></PiShoppingCartSimpleBold>
+              {cart.length}
             </div>
           </button>
         </Link>
