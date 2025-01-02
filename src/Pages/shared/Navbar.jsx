@@ -76,7 +76,7 @@ const Navbar = () => {
         <div className=" hidden lg:flex mr-5">
           <ul className="menu menu-horizontal px-1">{links}</ul>
         </div>
-        <Link>
+        <Link to="/dashboard">
           <button className="mr-4">
             <div className="badge p-4 font-bold text-base">
               <PiShoppingCartSimpleBold className="mr-2"></PiShoppingCartSimpleBold>
